@@ -1,0 +1,95 @@
+﻿<Page x:Class="WhereAmI.Components.Navigation.NavigatePageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Maps="using:Bing.Maps"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      HorizontalContentAlignment="Stretch"
+      VerticalContentAlignment="Stretch"
+      IsTabStop="false"
+      mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <AppBar Padding="10,0,10,0">
+            <Grid>
+                <!--
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button x:Name="CurrentLocation" Content="CurrentLocation" />
+                    <Button x:Name="AddLocation" Content="AddLocation" />
+                    <Button x:Name="Manage" Content="Manage" />
+                    <Button x:Name="Navigate" Content="Navigate" />
+                    </StackPanel>
+                -->
+            </Grid>
+        </AppBar>
+    </Page.BottomAppBar>
+
+    <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button x:Name="GoBack"
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{StaticResource BackButtonStyle}" />
+        <TextBlock Grid.Row="0"
+                   Grid.Column="1"
+                   HorizontalAlignment="Stretch"
+                   Style="{StaticResource PageHeaderTextStyle}"
+                   Text="{Binding DisplayName}" />
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Maps:Map x:Name="mainMap"
+                      Credentials="{StaticResource BingMapsCredentials}"
+                      LayoutUpdated="mainMap_LayoutUpdated"
+                      ZoomLevel="5.0">
+                <Maps:Map.Children>
+                    <Maps:Pushpin Style="{StaticResource CurrentPushPinStyle}">
+                        <Maps:MapLayer.Position>
+                            <Maps:Location Latitude="{Binding CurrentLocation.Position.Latitude}" Longitude="{Binding CurrentLocation.Position.Longitude}" />
+                        </Maps:MapLayer.Position>
+                    </Maps:Pushpin>
+
+                    <Maps:Pushpin Style="{StaticResource DestinationPushPinStyle}">
+                        <Maps:MapLayer.Position>
+                            <Maps:Location Latitude="{Binding DestinationLocation.Position.Latitude}" Longitude="{Binding DestinationLocation.Position.Longitude}" />
+                        </Maps:MapLayer.Position>
+                    </Maps:Pushpin>
+
+                </Maps:Map.Children>
+            </Maps:Map>
+        </Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="FullScreenLandscape" />
+                <VisualState x:Name="Filled" />
+
+                <!--  The entire page respects the narrower 100-pixel margin convention for portrait  -->
+                <VisualState x:Name="FullScreenPortrait">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PortraitBackButtonStyle}" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <!--  The back button and title have different styles when snapped  -->
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="backButton" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedBackButtonStyle}" />
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Style">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedPageHeaderTextStyle}" />
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

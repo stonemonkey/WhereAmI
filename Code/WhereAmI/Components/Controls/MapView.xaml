@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="WhereAmI.Components.Controls.MapView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Bing.Maps"
+    mc:Ignorable="d" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Maps:Map ZoomLevel="10.0"  
+                  Credentials="{StaticResource BingMapsCredentials}">
+            <Maps:Map.Children>
+            </Maps:Map.Children>
+        </Maps:Map>
+    </Grid>
+</Page>

@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1B7EBC3-D16B-458F-B09A-7D548D5AD0E3}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WhereAmI</RootNamespace>
+    <AssemblyName>WhereAmI</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>WhereAmI_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DateConverter.cs" />
+    <Compile Include="Common\DelegateCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\PercentageConverter.cs" />
+    <Compile Include="Components\Controls\MapView.xaml.cs">
+      <DependentUpon>MapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Controls\MapViewModel.cs" />
+    <Compile Include="Components\GpsSelectionPage\GpsSelectionPageView.xaml.cs">
+      <DependentUpon>GpsSelectionPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\GpsSelectionPage\GpsSelectionPageViewModel.cs" />
+    <Compile Include="Components\IPageViewModel.cs" />
+    <Compile Include="Components\Navigation\NavigatePageView.xaml.cs">
+      <DependentUpon>NavigatePageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\PopupMenu\Menu.cs" />
+    <Compile Include="Components\PopupMenu\MenuBarView.xaml.cs">
+      <DependentUpon>MenuBarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\PopupMenu\MenuBarViewModel.cs" />
+    <Compile Include="Components\PopupMenu\MenuCollection.cs" />
+    <Compile Include="Components\PopupMenu\RelayCommand.cs" />
+    <Compile Include="Components\WayPointsSelectionPage\WayPointsSelectionPageViewModel.cs" />
+    <Compile Include="Components\WayPointsSelectionPage\WayPointsSelectionPageView.xaml.cs">
+      <DependentUpon>WayPointsSelectionPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\Bool2VisibilityConverter.cs" />
+    <Compile Include="Converters\InvBool2VisibilityConverter.cs" />
+    <Compile Include="Converters\Null2CollapsedConverter.cs" />
+    <Compile Include="Core\Convertor\IConvertor.cs" />
+    <Compile Include="Core\Model\BaseModel.cs" />
+    <Compile Include="Core\Sensors\Convertors\GeopositionToGPSPositionConverter.cs" />
+    <Compile Include="Core\Sensors\GPS\GPSPositionProvider.cs" />
+    <Compile Include="Core\Sensors\GPS\GPSPositionProviderConfiguration.cs" />
+    <Compile Include="IShellViewModel.cs" />
+    <Compile Include="Components\Navigation\NavigatePageViewModel.cs" />
+    <Compile Include="Results\SaveResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\IUiService.cs" />
+    <Compile Include="Services\UiService.cs" />
+    <Compile Include="ShellViewModel.cs" />
+    <Compile Include="ShellPage.xaml.cs">
+      <DependentUpon>ShellPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Extensions\JsonObjectExtensions.cs" />
+    <Compile Include="Core\Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="Core\Extensions\TypeExtensions.cs" />
+    <Compile Include="Core\Repository\FileAccess\ApplicationFileManager.cs" />
+    <Compile Include="Core\Repository\FileAccess\DataReaderExtension.cs" />
+    <Compile Include="Core\Repository\FileAccess\FileManipulator.cs" />
+    <Compile Include="Core\Repository\FileAccess\IApplicationFileManager.cs" />
+    <Compile Include="Core\Repository\FileAccess\IFileManager.cs" />
+    <Compile Include="Core\Repository\FileAccess\IFileManipulator.cs" />
+    <Compile Include="Core\Repository\FileRepositoryBase.cs" />
+    <Compile Include="Core\Repository\IRepository.cs" />
+    <Compile Include="Core\Repository\Serializer\Encoder\Encoder.cs" />
+    <Compile Include="Core\Repository\Serializer\Encoder\IEncoder.cs" />
+    <Compile Include="Core\Repository\Serializer\ISerializeController.cs" />
+    <Compile Include="Core\Repository\Serializer\ISerializer.cs" />
+    <Compile Include="Core\Repository\Serializer\SerializeController.cs" />
+    <Compile Include="Core\Repository\WaypointsRepository.cs" />
+    <Compile Include="Core\Repository\WaypointsRepositoryFactory.cs" />
+    <Compile Include="Components\ManagePage\ManagePageViewModel.cs" />
+    <Compile Include="Components\ManagePage\ManagePageView.xaml.cs">
+      <DependentUpon>ManagePageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Model\GPSPosition.cs" />
+    <Compile Include="Core\Model\Waypoint.cs" />
+    <Compile Include="Core\Model\Waypoints.cs" />
+    <Compile Include="Components\MainPage\MainPageView.xaml.cs">
+      <DependentUpon>MainPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MainPage\MainPageViewModel.cs" />
+    <Compile Include="Components\PageViewModelBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataModel\SampleDataSource.cs" />
+    <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\LayoutAwarePage.cs" />
+    <Compile Include="Common\RichTextColumns.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Results\MessageDialogResult.cs" />
+    <Compile Include="Results\OpenChildResult.cs" />
+    <Compile Include="Results\ResultBase.cs" />
+    <Compile Include="Search\SearchResultsPage.xaml.cs">
+      <DependentUpon>SearchResultsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Common\ReadMe.txt" />
+    <None Include="packages.config" />
+    <None Include="WhereAmI_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appicon.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\logoMic.png" />
+    <Content Include="Assets\note2mare.png" />
+    <Content Include="Assets\searchIcon.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\LightGray.png" />
+    <Content Include="Assets\MediumGray.png" />
+    <Content Include="Assets\DarkGray.png" />
+    <Content Include="Assets\tilemare.png" />
+    <Content Include="Assets\tileMareAnimat.png" />
+    <Content Include="Assets\tileMic.png" />
+    <Content Include="Assets\tileMicAnimat.png" />
+    <Content Include="metadata.xml" />
+    <Content Include="SolutionItems\Libs\Caliburn.Micro\Caliburn.Micro.dll" />
+    <Content Include="SolutionItems\Libs\Caliburn.Micro\Caliburn.Micro.Extensions.dll" />
+    <Content Include="SolutionItems\Libs\Caliburn.Micro\Windows.UI.Interactivity.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\Controls\MapView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\GpsSelectionPage\GpsSelectionPageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\Navigation\NavigatePageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\PopupMenu\MenuBarView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\WayPointsSelectionPage\WayPointsSelectionPageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ShellPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\ManagePage\ManagePageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Components\MainPage\MainPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search\SearchResultsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SolutionItems\Libs\Caliburn.Micro\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Extensions, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SolutionItems\Libs\Caliburn.Micro\Caliburn.Micro.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Windows.UI.Interactivity, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SolutionItems\Libs\Caliburn.Micro\Windows.UI.Interactivity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Bing.Maps.Xaml, Version=1.0">
+      <Name>Bing Maps for C#, C++, or Visual Basic</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

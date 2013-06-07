@@ -1,0 +1,17 @@
+﻿<cal:CaliburnApplication
+    x:Class="WhereAmI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cal="using:Caliburn.Micro">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <x:String x:Key="AppName">WhereAmI</x:String>
+
+            <x:String x:Key="BingMapsCredentials">AiQx3eG9chVSqRMHjGafgS9FAji2jJ0WZk1z14M-yP1KRIkI1nCmwv-f42rqdfeI</x:String>
+        </ResourceDictionary>
+    </Application.Resources>
+</cal:CaliburnApplication>

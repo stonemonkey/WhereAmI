@@ -1,0 +1,34 @@
+﻿<Page x:Class="WhereAmI.Components.WayPointsSelectionPage.WayPointsSelectionPageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      IsTabStop="false"
+
+      mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <AppBar Padding="10,0,10,0">
+            <Grid />
+        </AppBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="GoBack" Style="{StaticResource BackButtonStyle}" />
+            <TextBlock Grid.Column="1"
+                       Style="{StaticResource PageHeaderTextStyle}"
+                       Text="{Binding DisplayName}" />
+        </Grid>
+    </Grid>
+</Page>

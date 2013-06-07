@@ -1,0 +1,95 @@
+﻿<Page x:Class="WhereAmI.Components.GpsSelectionPage.GpsSelectionPageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      HorizontalContentAlignment="Stretch"
+      VerticalContentAlignment="Stretch"
+      IsTabStop="false"
+
+      mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <AppBar Padding="10,0,10,0">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="Save" Style="{StaticResource SaveAppBarButtonStyle}" />
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+
+    <Grid Style="{StaticResource LayoutRootStyle}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="GoBack" Style="{StaticResource BackButtonStyle}" />
+        <TextBlock Grid.Column="1"
+                   Style="{StaticResource PageHeaderTextStyle}"
+                   Text="{Binding DisplayName}" />
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource DescriptionTextStyle}" Text="Altitude" />
+            <TextBox x:Name="Altitude"
+                     Grid.Column="1"
+                     IsReadOnly="true"
+                     Style="{StaticResource TextBoxStyle}"
+                     Text="{Binding Altitude}"
+                     ToolTipService.ToolTip="{Binding AltitudeValidationMessage}" />
+            <TextBlock Grid.Row="1"
+                       Style="{StaticResource DescriptionTextStyle}"
+                       Text="Latitude" />
+            <TextBox x:Name="Latitude"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Style="{StaticResource TextBoxStyle}"
+                     Text="{Binding Latitude,
+                                    Mode=TwoWay}"
+                     ToolTipService.ToolTip="{Binding LatitudeValidationMessage}" />
+            <TextBlock Grid.Row="2"
+                       Style="{StaticResource DescriptionTextStyle}"
+                       Text="Longitude" />
+            <TextBox x:Name="Longitude"
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     Style="{StaticResource TextBoxStyle}"
+                     Text="{Binding Longitude,
+                                    Mode=TwoWay}"
+                     ToolTipService.ToolTip="{Binding LongitudeValidationMessage}" />
+            <TextBlock Grid.Row="3"
+                       Style="{StaticResource DescriptionTextStyle}"
+                       Text="Title" />
+            <TextBox x:Name="Title"
+                     Grid.Row="3"
+                     Grid.Column="1"
+                     Style="{StaticResource TextBoxStyle}"
+                     Text="{Binding Title,
+                                    Mode=TwoWay}" />
+            <TextBlock Grid.Row="4"
+                       Style="{StaticResource DescriptionTextStyle}"
+                       Text="Description" />
+            <TextBox x:Name="Description"
+                     Grid.Row="4"
+                     Grid.Column="1"
+                     Style="{StaticResource TextBoxStyle}"
+                     Text="{Binding Description,
+                                    Mode=TwoWay}" />
+        </Grid>
+    </Grid>
+</Page>
